@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{layout :: head('Productos por Subcategoría')}">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Productos por Subcategoría</title>
+    </head>
+    <body>
+        <div th:replace="~{layout :: main-content(~{::div.content})}">
+            <div class="content">
+                <h2 class="mb-4">Productos por SubCategoría</h2>
+                  
+                <div class="table-responsive">
+                    <table id="tblProducto" class="table table-bordered table-striped">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>ID</th>
+                                <th>SubCategoría</th>
+                                <th>Marca</th>
+                                <th>Código</th>
+                                <th>Nombre</th>
+                                <th>Precio</th>
+                                <th>Stock</th>
+                                <th>Acciones</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <button class="btn btn-primary btn-return">Retornar</button>
+            </div>
+        </div>
+        
+        <!-- Modal de Detalles del Producto -->
+        <div class="modal fade" id="detalleProductoModal" tabindex="-1" aria-labelledby="detalleProductoModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header bg-primary text-white">
+                        <h5 class="modal-title" id="detalleProductoModalLabel">Detalles del Producto</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h6 class="fw-bold">Información General</h6>
+                                <table class="table table-borderless">
+                                    <tr>
+                                        <td><strong>ID:</strong></td>
+                                        <td id="detalle-id"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Código:</strong></td>
+                                        <td id="detalle-codigo"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Nombre:</strong></td>
+                                        <td id="detalle-nombre" class="text-wrap"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Precio:</strong></td>
+                                        <td id="detalle-precio"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Stock:</strong></td>
+                                        <td id="detalle-stock"></td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <div class="col-md-6">
+                                <h6 class="fw-bold">Clasificación</h6>
+                                <table class="table table-borderless">
+                                    <tr>
+                                        <td><strong>Categoría:</strong></td>
+                                        <td id="detalle-categoria" class="text-wrap"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Marca:</strong></td>
+                                        <td id="detalle-marca" class="text-wrap"></td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Proveedor:</strong></td>
+                                        <td id="detalle-proveedor" class="text-wrap"></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-12">
+                                <h6 class="fw-bold">Descripción</h6>
+                                <p id="detalle-descripcion" class="p-2 bg-light rounded text-wrap overflow-auto" style="max-height: 100px;"></p>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-12">
+                                <h6 class="fw-bold">Especificaciones</h6>
+                                <p id="detalle-especificaciones" class="p-2 bg-light rounded text-wrap overflow-auto" style="max-height: 100px;"></p>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-6">
+                                <h6 class="fw-bold">Imagen</h6>
+                                <div class="text-center">
+                                    <img id="detalle-imagen" src="" alt="Imagen del producto" class="img-fluid img-thumbnail" style="max-height: 150px;">
+                                    <p class="mt-2"><small id="detalle-imagen-url" class="text-muted text-truncate d-block" style="max-width: 100%;"></small></p>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h6 class="fw-bold">Información del Fabricante</h6>
+                                <p id="detalle-fabricante" class="p-2 bg-light rounded text-wrap overflow-auto" style="max-height: 150px;"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <th:block th:replace="~{layout :: scripts}"></th:block>
+        <!-- DataTables Script -->
+        <script th:src="@{/js/producto/producto-subcategoria-table.js}"></script>
+        <!-- Script para el modal de detalles -->
+        <script th:src="@{/js/producto/producto-subcategoria-detalle-modal.js}"></script>
+    </body>
+    </html>

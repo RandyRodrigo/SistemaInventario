@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout :: head('Dashboard de Reportes')}"></head>
+<body>
+    <div th:replace="~{layout :: main-content(~{::div.content})}">
+        <div class="content">
+            <h2 class="mb-4">Dashboard de Reportes</h2>
+            
+            <div class="row">
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-header bg-warning text-white">
+                            <h5 class="card-title mb-0">
+                                <i class="bi bi-exclamation-triangle me-2"></i>Stock Bajo
+                            </h5>
+                        </div>
+                        <div class="card-body d-flex flex-column">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span>Productos con stock menor o igual a <span th:text="${umbralStockBajo}"></span>:</span>
+                                <h3 class="text-danger mb-0">
+                                    <span th:text="${cantidadStockBajo}"></span>
+                                </h3>
+                            </div>
+                            <p class="card-text text-muted mt-3">
+                                Estos productos necesitan reabastecimiento pronto.
+                            </p>
+                            <div class="mt-auto text-end">
+                                <a th:href="@{/reporte/stock-bajo}" class="btn btn-warning">
+                                    Ver detalle <i class="bi bi-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Espacio para futuras tarjetas de reportes -->
+                <div class="col-md-6 col-lg-4 mb-4">
+                    <div class="card shadow-sm h-100">
+                        <div class="card-header bg-secondary text-white">
+                            <h5 class="card-title mb-0">
+                                <i class="bi bi-clock-history me-2"></i>Próximamente
+                            </h5>
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">
+                                Aquí se mostrarán nuevos reportes y estadísticas de inventario.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Espacio para gráficos futuros -->
+            <div class="row mt-4">
+                <div class="col-12">
+                    <div class="card shadow-sm">
+                        <div class="card-header bg-primary text-white">
+                            <h5 class="card-title mb-0">
+                                <i class="bi bi-graph-up me-2"></i>Próximamente: Estadísticas
+                            </h5>
+                        </div>
+                        <div class="card-body text-center py-5">
+                            <i class="bi bi-bar-chart-line display-1 text-muted"></i>
+                            <p class="mt-3">
+                                En esta sección se mostrarán gráficos y estadísticas de inventario.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <th:block th:replace="~{layout :: scripts}"></th:block>
+</body>
+</html>

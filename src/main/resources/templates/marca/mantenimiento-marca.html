@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout :: head('Mantenimiento de Marcas')}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mantenimiento de Marcas</title>
+</head>
+
+<body>
+    <div th:replace="~{layout :: main-content(~{::div.content})}">
+        <div class="content">
+            <h2 class="mb-4">Marcas</h2>
+
+            <div class="d-flex justify-content-end mb-3">
+                <button class="btn btn-primary" id="btnNuevaMarca">
+                    <i class="bi bi-plus-circle"></i> Nueva Marca
+                </button>
+            </div>
+
+            <div class="table-responsive">
+                <table id="tblMarca" class="table table-bordered table-striped">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Nombre</th>
+                            <th>Logo Url</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <th:block th:replace="~{layout :: scripts}"></th:block>
+    <!-- DataTables Script -->
+    <script th:src="@{/js/marca/mantenimiento-marca-table.js}"></script>
+    <!-- Script para el crud modal -->
+    <script th:src="@{/js/marca/marca-crud-modal.js}"></script>
+</body>
+
+</html>

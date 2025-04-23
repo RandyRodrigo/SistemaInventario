@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es"xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{layout :: head('Mantenimiento de Departamentos')}">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mantenimiento de Departamentos</title>
+    </head>
+    <body>
+        <div th:replace="~{layout :: main-content(~{::div.content})}">
+            <div class="content">
+                <h2 class="mb-4">Departamentos</h2>
+
+                <div class="d-flex justify-content-end mb-3">
+                    <button class="btn btn-primary" id="btnNuevoDepartamento">
+                        <i class="bi bi-plus-circle"></i> Nuevo Departamento
+                    </button>
+                </div>
+
+                <div class="table-responsive">
+                    <table id="tblDepartamento" class="table table-bordered table-striped">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>ID</th>
+                                <th>Nombre</th>
+                                <th>Descripción</th>
+                                <th>Imagen Url</th>
+                                <th>Acción</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <th:block th:replace="~{layout :: scripts}"></th:block>
+        <!-- DataTables Script -->
+        <script th:src="@{/js/departamento/mantenimiento-departamento-table.js}"></script>
+        <!-- Script para el crud modal -->
+        <script th:src="@{/js/departamento/departamento-crud-modal.js}"></script>
+    </body>
+</html>

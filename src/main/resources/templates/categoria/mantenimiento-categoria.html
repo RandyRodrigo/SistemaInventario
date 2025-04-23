@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout :: head('Mantenimiento de Categorías')}">
+    <title>Mantenimiento de Categorías</title>
+</head>
+<body>
+    <div th:replace="~{layout :: main-content(~{::div.content})}">
+        <div class="content">
+            <h2 class="mb-4">Categorías</h2>
+            
+            <div class="d-flex justify-content-end mb-3">
+                <button class="btn btn-primary" id="btnNuevaCategoria">
+                    <i class="bi bi-plus-circle"></i> Nueva Categoría
+                </button>
+            </div>
+            
+            <div class="table-responsive">
+                <table id="tblCategoria" class="table table-bordered table-striped">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Departamento</th>
+                            <th>Nombre</th>
+                            <th>Imagen</th>
+                            <th>Acción</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <th:block th:replace="~{layout :: scripts}"></th:block>
+    <!-- DataTables Script específico para esta página -->
+    <script th:src="@{/js/categoria/mantenimiento-categoria-table.js}"></script>
+    <!-- Script para el crud modal específico para esta página -->
+    <script th:src="@{/js/categoria/categoria-crud-modal.js}"></script>
+</body>
+</html>

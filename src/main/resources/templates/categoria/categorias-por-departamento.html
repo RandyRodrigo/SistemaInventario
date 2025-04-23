@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+    <head th:replace="~{layout :: head('Categorias por Departamento')}">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Categorias por Departamento</title>
+    </head>
+    <body>
+        <div th:replace="~{layout :: main-content(~{::div.content})}">
+            <div class="content">
+                <h2 class="mb-4">Categorías por Departamento</h2>
+
+                <div class="table-responsive">
+                    <table id="tblCategoria" class="table table-bordered table-striped">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>ID</th>
+                                <th>Departamento</th>
+                                <th>Nombre</th>
+                                <th>Imagen Url</th>
+                                <th>Acción</th>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <button class="btn btn-primary btn-return">Retornar</button>
+            </div>
+        </div>
+        <th:block th:replace="~{layout :: scripts}"></th:block>
+        <!-- DataTables Script -->
+        <script th:src="@{/js/categoria/categoria-departamento-table.js}"></script>
+
+    </body>
+</html>

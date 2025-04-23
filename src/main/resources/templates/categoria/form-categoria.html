@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{layout :: head(${titulo})}">
+    <title>Formulario de Categoría</title>
+</head>
+<body>
+    <div th:replace="~{layout :: main-content(~{::div.content})}">
+        <div class="content">
+            <h2 class="mb-4" th:text="${titulo}">Formulario de Categoría</h2>
+            
+            <div class="card shadow-sm">
+                <div class="card-body">
+                    <form id="categoriaForm" class="needs-validation" novalidate>
+                        <input type="hidden" id="categoriaId" th:value="${id}">
+                        <input type="hidden" id="accion" th:value="${accion}">
+                        
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="departamento" class="form-label">Departamento</label>
+                                    <select id="departamento" class="form-select" required>
+                                        <option value="">Seleccione un Departamento</option>
+                                        <!-- Se llenará con AJAX -->
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        Por favor seleccione un Departamento.
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="col-md-6">
+                                
+                                <div class="mb-3">
+                                    <label for="nombre" class="form-label">Nombre</label>
+                                    <input type="text" class="form-control" id="nombre" required maxlength="100">
+                                    <div class="invalid-feedback">
+                                        Por favor ingrese un nombre.
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        
+                        <div class="row mb-3">
+                            <div class="col-md-6">
+                                <label for="imagen_url" class="form-label">URL de Imagen</label>
+                                <input type="url" class="form-control" id="imagen_url" maxlength="255">
+                                <small class="text-muted">Ingrese una URL válida de imagen.</small>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex justify-content-between mt-4">
+                            <button type="button" class="btn btn-secondary" id="btnCancelar">Cancelar</button>
+                            <button type="submit" class="btn btn-primary" id="btnGuardar">Guardar</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <th:block th:replace="~{layout :: scripts}"></th:block>
+    <!-- Script para el formulario -->
+    <script th:src="@{/js/categoria/form-categoria.js}"></script>
+</body>
+</html>
